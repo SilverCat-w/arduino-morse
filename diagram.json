@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "author": "Asya Demir",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": 112.2, "left": -93.2, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -124.2, "left": 114.6, "attrs": {} },
+    {
+      "type": "wokwi-analog-joystick",
+      "id": "joystick1",
+      "top": 95.4,
+      "left": 274.2,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 175.2,
+      "left": 59.4,
+      "attrs": { "volume": "0.1" }
+    },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 190.7, "left": 163, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": 150, "left": -73, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 195.95,
+      "left": -57.6,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "joystick1:HORZ", "uno:A0", "gray", [ "v0" ] ],
+    [ "joystick1:SEL", "uno:A1", "white", [ "v0" ] ],
+    [ "joystick1:VCC", "uno:2", "blue", [ "v-345.6", "h43.9" ] ],
+    [ "bb1:29b.j", "uno:A2", "white", [ "v-172.8", "h144" ] ],
+    [ "uno:5V", "bb1:tp.1", "red", [ "v-9.7", "h-313" ] ],
+    [ "bb1:30b.j", "bb1:tp.2", "red", [ "v-153.6", "h-260.8" ] ],
+    [ "bz1:1", "uno:8", "blue", [ "v-403.2", "h201.6", "v9.6" ] ],
+    [ "joystick1:VERT", "bb1:tp.3", "red", [ "v0" ] ],
+    [ "led1:A", "bb1:tn.2", "orange", [ "v0" ] ],
+    [ "bz1:2", "bb1:tn.3", "orange", [ "v-105.6", "h-134.8" ] ],
+    [ "bb1:28b.j", "bb1:tn.4", "orange", [ "v-124.8", "h-220.8" ] ],
+    [ "joystick1:GND", "bb1:tn.5", "orange", [ "v0" ] ],
+    [ "bb1:tn.1", "uno:GND.2", "orange", [ "v-0.1", "h-8", "v-86.4", "h345.6" ] ],
+    [ "r1:2", "uno:9", "blue", [ "v9.6", "h-87.6", "v-364.8", "h364.8" ] ],
+    [ "led1:A", "bb1:3t.d", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:2t.d", "", [ "$bb" ] ],
+    [ "bz1:1", "bb1:17b.i", "", [ "$bb" ] ],
+    [ "bz1:2", "bb1:18b.i", "", [ "$bb" ] ],
+    [ "pot1:GND", "bb1:28b.i", "", [ "$bb" ] ],
+    [ "pot1:SIG", "bb1:29b.i", "", [ "$bb" ] ],
+    [ "pot1:VCC", "bb1:30b.i", "", [ "$bb" ] ],
+    [ "r1:1", "bb1:2t.e", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:8t.e", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
